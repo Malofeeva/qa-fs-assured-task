@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.cft.focus'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    def junitVersion = '5.4.2'
+    def jacksonVersion = '2.9.5'
+    
+    compile group: 'io.rest-assured', name: 'rest-assured', version: '4.0.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: junitVersion
+    compile "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.12.2'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+}
+
+test{
+    useJUnitPlatform()
+}
